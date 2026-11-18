@@ -38,6 +38,9 @@ jobs:
       platforms: ${{ inputs.platforms || 'linux,macos,windows,web' }}
       # The CMake project name, which is how other extensions name it.
       extension-name: SlicerVMTK
+      # Two of its modules install an icon of the same name, which Ninja
+      # refuses and the Makefiles of the Slicer extension build let through.
+      generator: Unix Makefiles
       slicer-repository: Sunderlandkyl/Slicer
       slicer-ref: ci/github-actions-build
       # A commit to the default branch, and the builds Slicer starts, publish;
